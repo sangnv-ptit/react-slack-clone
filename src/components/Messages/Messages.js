@@ -92,7 +92,7 @@ class Messages extends React.Component {
       });
     } else {
       this.state.usersRef
-        .child(`${this.state.channel.uid}/starred`)
+        .child(`${this.state.user.uid}/starred`)
         .child(this.state.channel.id)
         .remove(err => {
           if (err !== null) {
