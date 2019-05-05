@@ -16,8 +16,13 @@ class MetaPanel extends React.Component {
     this.setState({ activeIndex: newIndex });
   };
 
+  displayTopPosters = posts => (
+    Object.entries(posts)
+  )
+
   render() {
     const { activeIndex, privateChannel, channel } = this.state;
+    const { userPosts } = this.props;
 
     if (privateChannel) return null;
 
@@ -50,7 +55,7 @@ class MetaPanel extends React.Component {
             Top Posters
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 1}>
-            posters
+            {userPosts && this.displayTopPosters(userPosts)}
           </Accordion.Content>
 
           <Accordion.Title
