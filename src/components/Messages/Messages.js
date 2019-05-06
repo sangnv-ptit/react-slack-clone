@@ -1,7 +1,7 @@
 import React from "react";
 import { Segment, Comment } from "semantic-ui-react";
-import { connect } from 'react-redux'
-import { setUserPosts } from '../../actions';
+import { connect } from "react-redux";
+import { setUserPosts } from "../../actions";
 import firebase from "../../firebase";
 
 import MessagesHeader from "./MessagesHeader";
@@ -153,12 +153,12 @@ class Messages extends React.Component {
         acc[message.user.name] = {
           avatar: message.user.avatar,
           count: 1
-        }
+        };
       }
       return acc;
     }, {});
     this.props.setUserPosts(userPosts);
-  }
+  };
 
   displayMessages = messages =>
     messages.length > 0 &&
@@ -232,4 +232,7 @@ class Messages extends React.Component {
   }
 }
 
-export default connect(null, { setUserPosts })(Messages);
+export default connect(
+  null,
+  { setUserPosts }
+)(Messages);
